@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
+import { marked } from 'marked'
 import { FileTree } from '../components/FileTree'
 import { fileTree } from '../data/fileTree'
 
@@ -7,14 +8,22 @@ export function EntriesPage() {
   const [selected, setSelected] = useState<string | null>(null)
   const [content, setContent] = useState<string | null>(null)
 
-  const fileContents = new Map<string, string>()
-  const collectFiles = (entries: typeof fileTree) => {
-    for (const e of entries) {
-      if (e.type === 'file' && e.content) fileContents.set(e.name, e.content)
-      if (e.children) collectFiles(e.children)
+  const fileContents = useMemo(() => {
+    const map = new Map<string, string>()
+    const collectFiles = (entries: typeof fileTree) => {
+      for (const e of entries) {
+        if (e.type === 'file' && e.content) map.set(e.name, e.content)
+        if (e.children) collectFiles(e.children)
+      }
     }
-  }
-  collectFiles(fileTree)
+    collectFiles(fileTree)
+    return map
+  }, [])
+
+  const html = useMemo(() => {
+    if (!content) return null
+    return marked.parse(content, { async: false }) as string
+  }, [content])
 
   return (
     <div className="entriesLayout">
@@ -40,8 +49,8 @@ export function EntriesPage() {
         />
       </div>
       <div className="entriesContent">
-        {content ? (
-          <p>{content}</p>
+        {html ? (
+          <div className="entriesMarkdown" dangerouslySetInnerHTML={{ __html: html }} />
         ) : (
           <p className="entriesPlaceholder">select a file to read</p>
         )}

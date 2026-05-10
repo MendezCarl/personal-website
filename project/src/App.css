@@ -13,7 +13,6 @@
   font-family: 'Open Sans', sans-serif;
   line-height: 1.6;
   min-height: 100vh;
-  min-width: 420px;
   overflow-x: hidden;
   background: var(--bg);
   color: var(--text-primary);
@@ -157,8 +156,8 @@
   .menuToggle {
     display: block;
     position: fixed;
-    top: 0.75rem;
-    left: 0.75rem;
+    top: 0.5rem;
+    left: 0.5rem;
     z-index: 50;
     background: var(--toggle-bg);
     border: 1px solid var(--text-nav);
@@ -177,6 +176,75 @@
 
   .footer {
     left: 0;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .main {
+    padding: 1rem;
+    padding-top: 3rem;
+  }
+
+  .footer {
+    padding: 0.75rem 1rem;
+    font-size: 0.75rem;
+  }
+
+  .footerInner {
+    flex-direction: column;
+    gap: 0.25rem;
+    align-items: flex-start;
+  }
+
+  .siteName {
+    font-size: 1.4rem;
+  }
+
+  .pageTitle {
+    font-size: 0.85rem;
+    margin-bottom: 1.25em;
+  }
+
+  .entriesLayout {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .entriesSidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid var(--hr);
+    padding-right: 0;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .experienceHeader {
+    flex-direction: column;
+    gap: 0.15em;
+  }
+
+  .experienceHeader p:last-child {
+    margin-left: 0;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+  }
+
+  .experienceDesc {
+    padding-left: 1em;
+  }
+
+  .links {
+    gap: 0.4em;
+  }
+
+  .innerDescription {
+    flex-direction: column;
+    gap: 0.5em;
+  }
+
+  .lightbox {
+    padding: 1rem;
   }
 }
 

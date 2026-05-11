@@ -1,5 +1,3 @@
-import { InnerDescription } from '../components/ExperienceItem'
-
 export function HomePage() {
   return (
     <div className="introduction">
@@ -22,9 +20,7 @@ export function HomePage() {
         <hr />
         <div style={{ marginBottom: '2em' }}>
           <p className="sectionTitle">my interests <br /></p>
-          <InnerDescription>
-            <p>I enjoy many sports but my most played/watched are soccer(football), basketball, tennis, and badminton. I also enjoy playing rts or multiplayer games like minecraft, rocket league, etc.</p>
-          </InnerDescription>
+          <p>I enjoy many sports but my most played/watched are soccer(football), basketball, tennis, and badminton. I also enjoy playing rts or multiplayer games like minecraft, rocket league, etc.</p>
         </div>
       </div>
     </div>

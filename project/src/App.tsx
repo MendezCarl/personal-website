@@ -3,6 +3,7 @@ import './App.css'
 import type { Page } from './types'
 import { Sidebar } from './components/Sidebar'
 import { LocalTime } from './components/LocalTime'
+import { ScrollProgress } from './components/ScrollProgress'
 import { HomePage } from './pages/HomePage'
 import { WorkPage } from './pages/WorkPage'
 import { ExperiencesPage } from './pages/ExperiencesPage'
@@ -28,6 +29,7 @@ function App() {
 
   useEffect(() => {
     localStorage.setItem('theme', dark ? 'dark' : 'light')
+    document.body.style.backgroundColor = dark ? '#1a1a1a' : '#ffffff'
   }, [dark])
 
   const PageComponent = pageComponents[page]
@@ -39,6 +41,7 @@ function App() {
         ☰
       </button>
       <div className="contentArea">
+        <ScrollProgress />
         <main className="main">
           <div className="pageContainer">
             <h1 className="siteName">Carlos Mendez</h1>

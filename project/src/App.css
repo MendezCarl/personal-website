@@ -12,8 +12,8 @@
   --toggle-hover: #e0e0e0;
   font-family: 'Open Sans', sans-serif;
   line-height: 1.6;
-  min-height: 100vh;
-  overflow-x: hidden;
+  height: 100vh;
+  overflow-y: auto;
   background: var(--bg);
   color: var(--text-primary);
   transition: background 0.3s, color 0.3s;
@@ -28,7 +28,7 @@
   --text-nav: #c0c0c0;
   --text-link: #e0e0e0;
   --hr: #333;
-  --scrollbar: #555;
+  --scrollbar: #777;
   --selection: #3a5a7a;
   --image-bg: #2a2a2a;
   --toggle-bg: transparent;
@@ -95,6 +95,7 @@
   display: flex;
   flex-direction: column;
   min-width: 0;
+  position: relative;
 }
 
 .menuToggle {
@@ -174,20 +175,13 @@
     background: var(--toggle-hover);
   }
 
-  .footer {
-    left: 0;
-  }
+
 }
 
 @media screen and (max-width: 600px) {
   .main {
     padding: 1rem;
     padding-top: 3rem;
-  }
-
-  .footer {
-    padding: 0.75rem 1rem;
-    font-size: 0.75rem;
   }
 
   .footerInner {
@@ -252,27 +246,21 @@
   display: flex;
   justify-content: center;
   padding: 2rem;
+  flex: 1;
 }
 
 .footer {
   font-size: 0.85rem;
   padding: 1rem 2rem;
   color: var(--text-primary);
-  position: fixed;
-  bottom: 0;
-  left: 200px;
-  right: 0;
-  z-index: 10;
   display: flex;
   justify-content: center;
   background: var(--bg);
   box-sizing: border-box;
-  transition: background 0.3s, left 0.3s ease;
+  transition: background 0.3s;
 }
 
-.main {
-  padding-bottom: 4rem;
-}
+
 
 .footerInner {
   width: 100%;
@@ -680,4 +668,23 @@
     opacity: 1;
     transform: scale(1) translateY(0);
   }
+}
+
+.scrollProgress {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  pointer-events: none;
+  z-index: 50;
+}
+
+.scrollProgressThumb {
+  position: absolute;
+  right: 1px;
+  width: 2px;
+  height: 32px;
+  background: var(--scrollbar);
+  transition: top 0.05s linear;
 }

@@ -5,7 +5,6 @@
   --text-nav: #3f3f3f;
   --text-link: #000000;
   --hr: #eee;
-  --scrollbar: #a7a7a7;
   --selection: #bfe0ff;
   --image-bg: #f7f7f7;
   --toggle-bg: transparent;
@@ -13,12 +12,13 @@
   font-family: 'Open Sans', sans-serif;
   line-height: 1.6;
   height: 100vh;
-  overflow-y: auto;
+  overflow-y: scroll;
   background: var(--bg);
   color: var(--text-primary);
   transition: background 0.3s, color 0.3s;
   display: flex;
   flex-direction: row;
+  border-right: 4px solid var(--bg);
 }
 
 .layout.dark {
@@ -28,7 +28,6 @@
   --text-nav: #c0c0c0;
   --text-link: #e0e0e0;
   --hr: #333;
-  --scrollbar: #777;
   --selection: #3a5a7a;
   --image-bg: #2a2a2a;
   --toggle-bg: transparent;
@@ -670,21 +669,4 @@
   }
 }
 
-.scrollProgress {
-  position: absolute;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  width: 4px;
-  pointer-events: none;
-  z-index: 50;
-}
 
-.scrollProgressThumb {
-  position: absolute;
-  right: 1px;
-  width: 2px;
-  height: 32px;
-  background: var(--scrollbar);
-  transition: top 0.05s linear;
-}

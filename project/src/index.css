@@ -7,22 +7,18 @@ body, html {
   padding: 0;
 }
 
-body ::-webkit-scrollbar,
-html ::-webkit-scrollbar {
-  width: 16px;
+/* Force native scrollbar visible on the layout container */
+.layout::-webkit-scrollbar {
+  width: 8px;
 }
 
-body ::-webkit-scrollbar-track,
-html ::-webkit-scrollbar-track {
+.layout::-webkit-scrollbar-track {
   background: transparent;
 }
 
-body ::-webkit-scrollbar-thumb,
-html ::-webkit-scrollbar-thumb {
-  background-clip: content-box !important;
+.layout::-webkit-scrollbar-thumb {
   background: #a7a7a7;
-  border: 4px solid transparent;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 
 a {
